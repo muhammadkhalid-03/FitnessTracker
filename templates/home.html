@@ -1,0 +1,13 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content %}
+<div class="container">
+  <div class="title-container">
+    <h1 align="center">Welcome, {{ first_name }}!</h1>
+    <h2 align="center">Start your fitness journey now!</h2>
+  </div>
+  <div class="button-group">
+    <a class="glowing-button" href="/workout-log">Log Workout</a>
+    <a class="glowing-button" href="/track-progress">Track My Progress</a>
+    <a class="glowing-button" href="/log-weight">Log Weight</a>
+  </div>
+</div>
+{% endblock %}

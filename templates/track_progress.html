@@ -1,0 +1,45 @@
+{% extends "base.html" %} {% block title %}Progress{% endblock %}
+
+{% block workout_nav %}
+  <a class="nav-item nav-link" href="/workout-log">Log workout</a>
+  <a class="nav-item nav-link" href="/log-weight">Log Weight</a>
+{% endblock %}
+
+{% block content %}
+<h1 class="title-container">Logged Workouts</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Exercise Name</th>
+      <th>Sets</th>
+      <th>Reps</th>
+      <th>Weight (lbs)</th>
+      <th>Date/Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for workout in workouts %}
+      <tr>
+        <td>{{ workout.exercise_name }}</td>
+        <td>{{ workout.sets }}</td>
+        <td>{{ workout.reps }}</td>
+        <td>{{ workout.weight }}</td>
+        <td>{{ workout.date.strftime('%Y-%m-%d %H:%M:%S')}}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<div class="reset-buttons button-group">
+  <a href="/reset-workout" class="btn btn-danger">Reset Workout Log</a>
+</div>
+
+<h2 class="title-container">My Progress</h2>
+  <div class="graph-container">
+      {{ chart_div | safe }}
+    </div>
+  </div>
+  <div class="reset-buttons button-group">
+    <a href="/reset-weight" class="btn btn-danger">Reset Weight Log</a>
+  </div>
+{% endblock %}
